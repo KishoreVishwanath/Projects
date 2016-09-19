@@ -1,0 +1,188 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.google.android.gms.location.sample.locationaddress.AddEmployee">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name"
+            android:id="@+id/fsNameTxtVw"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name"
+            android:id="@+id/lsNameVw"
+            android:layout_below="@+id/fsNameTxtVw"
+            android:layout_alignLeft="@+id/fsNameTxtVw"
+            android:layout_alignStart="@+id/fsNameTxtVw"
+            android:layout_marginTop="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:id="@+id/gnTxtVw"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/lsNameVw"
+            android:layout_alignLeft="@+id/lsNameVw"
+            android:layout_alignStart="@+id/lsNameVw" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:id="@+id/addTxtVw"
+            android:layout_marginTop="57dp"
+            android:layout_below="@+id/gnTxtVw"
+            android:layout_alignLeft="@+id/gnTxtVw"
+            android:layout_alignStart="@+id/gnTxtVw" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOB"
+            android:id="@+id/dobTxtVw"
+            android:layout_below="@+id/gnTxtVw"
+            android:layout_alignLeft="@+id/addTxtVw"
+            android:layout_alignStart="@+id/addTxtVw"
+            android:layout_marginTop="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Identification Documents Collected"
+            android:id="@+id/idenTxtVw"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/addTxtVw"
+            android:layout_alignStart="@+id/addTxtVw" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adhaar"
+            android:id="@+id/checkBox"
+            android:checked="false"
+            android:layout_below="@+id/idenTxtVw"
+            android:layout_toRightOf="@+id/fsNameTxtVw"
+            android:layout_toEndOf="@+id/fsNameTxtVw"
+            android:layout_marginTop="29dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PAN"
+            android:id="@+id/checkBox2"
+            android:checked="false"
+            android:layout_below="@+id/checkBox"
+            android:layout_toRightOf="@+id/fsNameTxtVw" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voter ID"
+            android:id="@+id/checkBox3"
+            android:checked="false"
+            android:layout_below="@+id/checkBox2"
+            android:layout_toRightOf="@+id/fsNameTxtVw" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driving License"
+            android:id="@+id/checkBox4"
+            android:checked="false"
+            android:layout_below="@+id/checkBox3"
+            android:layout_toRightOf="@+id/fsNameTxtVw" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ration Card"
+            android:id="@+id/checkBox5"
+            android:checked="false"
+            android:layout_below="@+id/checkBox4"
+            android:layout_toRightOf="@+id/fsNameTxtVw" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_alignBottom="@+id/fsNameTxtVw"
+            android:layout_alignRight="@+id/checkBox5"
+            android:layout_alignEnd="@+id/checkBox5"
+            android:text="First name" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:text="last Name"
+            android:layout_above="@+id/radioButton"
+            android:layout_alignRight="@+id/editText"
+            android:layout_alignEnd="@+id/editText" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:id="@+id/radioButton"
+            android:layout_alignTop="@+id/gnTxtVw"
+            android:layout_alignLeft="@+id/editText"
+            android:layout_alignStart="@+id/editText"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:id="@+id/radioButton2"
+            android:layout_below="@+id/editText2"
+            android:layout_toRightOf="@+id/checkBox3"
+            android:layout_toEndOf="@+id/checkBox3"
+            android:checked="false" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText3"
+            android:layout_alignTop="@+id/dobTxtVw"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_alignStart="@+id/editText2"
+            android:text="18-09-2016" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPostalAddress"
+            android:ems="10"
+            android:id="@+id/editText4"
+            android:layout_below="@+id/editText3"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/button"
+            android:layout_below="@+id/checkBox5"
+            android:layout_alignLeft="@+id/editText4"
+            android:layout_alignStart="@+id/editText4" />
+
+    </RelativeLayout>
+</FrameLayout>

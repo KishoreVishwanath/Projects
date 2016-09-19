@@ -3,6 +3,8 @@ package com.google.android.gms.location.sample.locationaddress;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -110,18 +112,18 @@ public class FieldServices extends AppCompatActivity
 
         mResultReceiver = new AddressResultReceiver(new Handler());
 
-        mLocationAddressTextView = (TextView) findViewById(R.id.location_address_view1);
+/*        mLocationAddressTextView = (TextView) findViewById(R.id.location_address_view1);
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar1);
         mFetchAddressButton = (Button) findViewById(R.id.fetch_address_button1);
 
         // Set defaults, then update using values stored in the Bundle.
         mAddressRequested = false;
-        mAddressOutput = "";
+        mAddressOutput = "";*/
         updateValuesFromBundle(savedInstanceState);
 
-        updateUIWidgets();
+        //updateUIWidgets();
         buildGoogleApiClient();
-
+        StartAddressService();
     }
 
     /**
@@ -137,7 +139,7 @@ public class FieldServices extends AppCompatActivity
             // and stored in the Bundle. If it was found, display the address string in the UI.
             if (savedInstanceState.keySet().contains(LOCATION_ADDRESS_KEY)) {
                 mAddressOutput = savedInstanceState.getString(LOCATION_ADDRESS_KEY);
-                displayAddressOutput();
+                //displayAddressOutput();
             }
         }
     }
@@ -169,7 +171,13 @@ public class FieldServices extends AppCompatActivity
         mAddressRequested = true;
         updateUIWidgets();
     }
+    public void StartAddressService(){
+        if (mGoogleApiClient.isConnected() && mLastLocation != null) {
+            startIntentService();
+        }
 
+        mAddressRequested = true;
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -179,7 +187,7 @@ public class FieldServices extends AppCompatActivity
     @Override
     protected void onStop() {
         super.onStop();
-        if (mGoogleApiClient.isConnected()) {
+       if (mGoogleApiClient.isConnected()) {
             mGoogleApiClient.disconnect();
         }
     }
@@ -191,7 +199,7 @@ public class FieldServices extends AppCompatActivity
     public void onConnected(Bundle connectionHint) {
         // Gets the best and most recent location currently available, which may be null
         // in rare cases when a location is not available.
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        ApplicationData.getInstance().gLastLocation = mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
             // Determine whether a Geocoder is available.
             if (!Geocoder.isPresent()) {
@@ -298,7 +306,7 @@ public class FieldServices extends AppCompatActivity
 
             // Display the address string or an error message sent from the intent service.
             mAddressOutput = resultData.getString(Constants.RESULT_DATA_KEY);
-            displayAddressOutput();
+            //displayAddressOutput();
 
             // Show a toast message if an address was found.
             if (resultCode == Constants.SUCCESS_RESULT) {
@@ -307,7 +315,7 @@ public class FieldServices extends AppCompatActivity
 
             // Reset. Enable the Fetch Address button and stop showing the progress bar.
             mAddressRequested = false;
-            updateUIWidgets();
+            //updateUIWidgets();
         }
     }
 
@@ -350,20 +358,32 @@ public class FieldServices extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Fragment fragment = null;
+        Class fragmentClass = null;
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            fragmentClass = AddEmployee.class;
         } else if (id == R.id.nav_gallery) {
-
+            fragmentClass = ItemFragment.class;
         } else if (id == R.id.nav_slideshow) {
+            fragmentClass = WeeklyReport.class;
+        }
+ /*       else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
+        } */
+        else if (id == R.id.nav_share) {
+            fragmentClass = DailyReport.class;
 
         } else if (id == R.id.nav_send) {
-
+            fragmentClass = StoreLocation.class;
         }
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

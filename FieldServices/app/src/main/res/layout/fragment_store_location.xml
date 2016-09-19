@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.google.android.gms.location.sample.locationaddress.StoreLocation">
+
+    <!-- TODO: Update blank fragment layout -->
+<!--    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />-->
+
+<!--    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_gravity="left|top" />
+
+    <Button
+        android:id="@+id/fetch_address_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Coordinates"
+        android:layout_gravity="bottom|center_horizontal" />-->
+
+
+    <!--android:onClick="FragmentfetchAddressButtonHandler"-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|top">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Coordinates"
+            android:id="@+id/fetch_address_button1"
+            android:layout_below="@+id/spinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="43dp" />
+    </RelativeLayout>
+</FrameLayout>
