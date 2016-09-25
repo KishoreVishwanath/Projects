@@ -8,7 +8,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="left|top">
+        android:layout_gravity="center"
+        android:background="@color/wallet_highlighted_text_holo_light">
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,103 +68,75 @@
             android:layout_height="wrap_content"
             android:text="Identification Documents Collected"
             android:id="@+id/idenTxtVw"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/editText4"
             android:layout_alignLeft="@+id/addTxtVw"
-            android:layout_alignStart="@+id/addTxtVw" />
+            android:layout_alignStart="@+id/addTxtVw"
+            android:layout_marginTop="20dp" />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adhaar"
-            android:id="@+id/checkBox"
-            android:checked="false"
-            android:layout_below="@+id/idenTxtVw"
-            android:layout_toRightOf="@+id/fsNameTxtVw"
-            android:layout_toEndOf="@+id/fsNameTxtVw"
-            android:layout_marginTop="29dp" />
 
-        <CheckBox
+            <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PAN"
             android:id="@+id/checkBox2"
             android:checked="false"
-            android:layout_below="@+id/checkBox"
-            android:layout_toRightOf="@+id/fsNameTxtVw" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Voter ID"
-            android:id="@+id/checkBox3"
-            android:checked="false"
-            android:layout_below="@+id/checkBox2"
-            android:layout_toRightOf="@+id/fsNameTxtVw" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Driving License"
-            android:id="@+id/checkBox4"
-            android:checked="false"
-            android:layout_below="@+id/checkBox3"
-            android:layout_toRightOf="@+id/fsNameTxtVw" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ration Card"
-            android:id="@+id/checkBox5"
-            android:checked="false"
-            android:layout_below="@+id/checkBox4"
-            android:layout_toRightOf="@+id/fsNameTxtVw" />
+                android:layout_alignTop="@+id/checkBox3"
+                android:layout_alignRight="@+id/lsNameVw"
+                android:layout_alignEnd="@+id/lsNameVw" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
-            android:layout_alignBottom="@+id/fsNameTxtVw"
-            android:layout_alignRight="@+id/checkBox5"
-            android:layout_alignEnd="@+id/checkBox5"
-            android:text="First name" />
+            android:text="First name"
+            android:layout_above="@+id/lsNameVw"
+            android:layout_centerHorizontal="true" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
             android:text="last Name"
-            android:layout_above="@+id/radioButton"
-            android:layout_alignRight="@+id/editText"
-            android:layout_alignEnd="@+id/editText" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:id="@+id/radioButton"
-            android:layout_alignTop="@+id/gnTxtVw"
+            android:layout_below="@+id/fsNameTxtVw"
             android:layout_alignLeft="@+id/editText"
-            android:layout_alignStart="@+id/editText"
-            android:checked="false" />
+            android:layout_alignStart="@+id/editText" />
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
 
-        <RadioButton
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Female"
-            android:id="@+id/radioButton2"
-            android:layout_below="@+id/editText2"
-            android:layout_toRightOf="@+id/checkBox3"
-            android:layout_toEndOf="@+id/checkBox3"
-            android:checked="false" />
+            android:orientation="horizontal"
+            android:layout_above="@+id/addTxtVw"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_alignStart="@+id/editText2"
+            android:id="@+id/radioGroup">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/radioButton"
+                android:checked="false"
+                android:layout_below="@+id/lsNameVw"
+                android:layout_alignLeft="@+id/lsNameVw"
+                android:layout_alignStart="@+id/lsNameVw" />
 
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/radioButton2"
+                android:checked="false"
+                android:layout_below="@+id/editText2"
+                android:layout_toRightOf="@+id/radioButton"
+                android:layout_toEndOf="@+id/radioButton" />
+        </RadioGroup>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editText3"
-            android:layout_alignTop="@+id/dobTxtVw"
-            android:layout_alignLeft="@+id/editText2"
-            android:layout_alignStart="@+id/editText2"
-            android:text="18-09-2016" />
+            android:text="18-09-2016"
+            android:layout_below="@+id/radioGroup"
+            android:layout_alignLeft="@+id/radioGroup"
+            android:layout_alignStart="@+id/radioGroup" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -180,7 +153,53 @@
             android:layout_height="wrap_content"
             android:text="Save"
             android:id="@+id/button"
-            android:layout_below="@+id/checkBox5"
+            android:layout_below="@+id/checkBox"
+            android:layout_alignLeft="@+id/checkBox"
+            android:layout_alignStart="@+id/checkBox"
+            android:layout_marginTop="40dp"
+            android:clickable="true"
+            android:onClick=""
+            android:background="#c9c8d8" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voter ID"
+            android:id="@+id/checkBox3"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBox4"
+            android:layout_alignLeft="@+id/checkBox"
+            android:layout_alignStart="@+id/checkBox" />
+
+        <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driving License"
+        android:id="@+id/checkBox4"
+        android:checked="false"
+            android:layout_below="@+id/idenTxtVw"
+            android:layout_toRightOf="@+id/editText"
+            android:layout_toEndOf="@+id/editText"
+            android:layout_marginTop="28dp" />
+
+        <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ration Card"
+        android:id="@+id/checkBox5"
+        android:checked="false"
+            android:layout_marginTop="28dp"
+            android:layout_below="@+id/checkBox2"
+            android:layout_alignLeft="@+id/checkBox2"
+            android:layout_alignStart="@+id/checkBox2" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adhaar"
+            android:id="@+id/checkBox"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBox5"
             android:layout_alignLeft="@+id/editText4"
             android:layout_alignStart="@+id/editText4" />
 

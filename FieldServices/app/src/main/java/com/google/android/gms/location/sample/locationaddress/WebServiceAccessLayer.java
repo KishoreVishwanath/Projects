@@ -24,7 +24,7 @@ public class WebServiceAccessLayer {
         //client.setBasicAuth("username","password/token");
         //client.setEnableRedirects(true);
         try {
-            client.get("http://24x7fscimap.ampersandsquare.com/Sample/login/dologin", params, new AsyncHttpResponseHandler() {
+            client.get("http://localhost:8081/FS24X7WebService/login/dologin", params, new AsyncHttpResponseHandler() {
                 // When the response returned by REST has Http response code '200'
                 @Override
                 public void onSuccess(String response) {

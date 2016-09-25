@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/wallet_highlighted_text_holo_dark"
             app:popupTheme="@style/Theme.Base.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -27,7 +27,8 @@
         android:id="@+id/flContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"/>
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/wallet_highlighted_text_holo_dark" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
