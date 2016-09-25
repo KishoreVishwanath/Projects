@@ -30,6 +30,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.location.LocationServices;
+import com.loopj.android.http.RequestParams;
 
 public class FieldServices extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -96,7 +97,7 @@ public class FieldServices extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with my own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -120,7 +121,13 @@ public class FieldServices extends AppCompatActivity
         mAddressRequested = false;
         mAddressOutput = "";*/
         updateValuesFromBundle(savedInstanceState);
-
+        WebServiceAccessLayer wbLayer = new WebServiceAccessLayer();
+        RequestParams params = new RequestParams();
+        // Put Http parameter username with value of Email Edit View control
+        params.put("username", "lakshmi");
+        // Put Http parameter pamssword with value of Password Edit Value control
+        params.put("password", "lakshmi");
+        wbLayer.invokeWS(params);
         //updateUIWidgets();
         buildGoogleApiClient();
         StartAddressService();
